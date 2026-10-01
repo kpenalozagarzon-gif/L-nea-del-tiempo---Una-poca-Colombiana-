@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea del Tiempo: Colombia (1991 - Actualidad)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; }
+        header { text-align: center; padding: 30px 10px; background: #1a365d; color: white; border-radius: 10px; margin-bottom: 25px; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        
+        .section-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+        .btn-main { background-color: #2b6cb0; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        .btn-main:hover { background-color: #2c5282; }
+        
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: white; padding: 25px; border-radius: 8px; max-width: 600px; width: 100%; position: relative; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #666; }
+
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; border-left: 4px solid #2b6cb0; padding-left: 20px; }
+        .hito { background: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; }
+        .hito::before { content: ''; position: absolute; left: -28px; top: 20px; width: 12px; height: 12px; background: #2b6cb0; border-radius: 50%; }
+        
+        .fecha { font-weight: bold; color: #2b6cb0; font-size: 0.9rem; }
+        .titulo { font-size: 1.2rem; margin: 5px 0 10px; color: #1a202c; }
+        .eje { display: inline-block; background: #e2e8f0; color: #4a5568; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; }
+        .descripcion { font-size: 0.95rem; line-height: 1.5; color: #4a5568; margin-bottom: 15px; }
+        .fuente { font-size: 0.8rem; color: #718096; font-style: italic; }
+
+        .btn-curioso { background-color: #ed8936; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-top: 10px; }
+        .dato-curioso { display: none; margin-top: 10px; padding: 10px; background: #fffaf0; border-left: 3px solid #ed8936; font-size: 0.9rem; color: #744210; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Transformaciones Socio-Políticas y Económicas de Colombia</h1>
+        <p>Línea del tiempo interactiva (1991 - Actualidad)</p>
+    </header>
+
+    <!-- Botones Principales para Introducción y Conclusión -->
+    <div class="section-buttons">
+        <button class="btn-main" onclick="openModal('modal-intro')">Ver Introducción</button>
+        <button class="btn-main" onclick="openModal('modal-conclusion')">Ver Conclusión</button>
+    </div>
+
+    <!-- Modal Introducción -->
+    <div id="modal-intro" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-intro')">&times;</span>
+            <h2>Introducción</h2>
+            <p style="margin-top: 10px; line-height: 1.6;">
+                La historia reciente de Colombia desde 1991 está marcada por profundas transformaciones normativas, económicas y sociales. La promulgación de la Constitución de 1991 redefinió al país como un Estado Social de Derecho, promoviendo la descentralización territorial e institucional. Paralelamente, la apertura económica y la búsqueda inacabada de la paz han moldeado las dinámicas políticas y sociales contemporáneas.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal Conclusión -->
+    <div id="modal-conclusion" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-conclusion')">&times;</span>
+            <h2>Conclusión</h2>
+            <p style="margin-top: 10px; line-height: 1.6;">
+                A lo largo de estas tres décadas, Colombia ha demostrado una capacidad institucional resiliente frente a crisis económicas y conflictos armados. La interacción entre reformas constitucionales, la movilización ciudadana y la búsqueda de paz demuestra un proceso dinámico en constante consolidación democrática.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contenedor de la Línea del Tiempo -->
+    <div class="timeline">
+
+        <!-- Hito 1 -->
+        <div class="hito">
+            <span class="fecha">Julio de 1991</span>
+            <div class="titulo">Promulgación de la Constitución Política de 1991</div>
+            <span class="eje">Eje: Político / Constitucional</span>
+            <p class="descripcion">Se promulga una nueva Carta Magna que establece a Colombia como un Estado Social de Derecho. Introduce herramientas ciudadanas como la Acción de Tutela, crea la Corte Constitucional y la Fiscalía, y promueve la descentralización fiscal y administrativa.</p>
+            <p class="fuente">Fuente: Asamblea Nacional Constituyente. (1991). Constitución Política de Colombia.</p>
+            <button class="btn-curioso" onclick="toggleDato(this)">Ver Dato Curioso</button>
+            <div class="dato-curioso">Dato curioso: Fue redactada por una asamblea pluralista que incluyó a excombatientes del M-19, indígenas, comunidades religiosas y partidos tradicionales.</div>
+        </div>
+
+        <!-- Hito 2 -->
+        <div class="hito">
+            <span class="fecha">Agosto de 1991</span>
+            <div class="titulo">Implementación de la Apertura Económica</div>
+            <span class="eje">Eje: Económico</span>
+            <p class="descripcion">Bajo el mandato de César Gaviria, se acelera la reducción de aranceles y la flexibilización del comercio exterior, marcando la transición de un modelo proteccionista a uno de libre mercado integrado a la economía global.</p>
+            <p class="fuente">Fuente: Hommes, R. (1992). La apertura económica en Colombia.</p>
+            <button class="btn-curioso" onclick="toggleDato(this)">Ver Dato Curioso</button>
+            <div class="dato-curioso">Dato curioso: El lema no oficial de la época fue "Bienvenida la competencia", buscando modernizar la industria nacional.</div>
+        </div>
+
+        <!-- Puedes agregar aquí los demás hitos duplicando el bloque div.hito -->
+
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function toggleDato(button) {
+            const dato = button.nextElementSibling;
+            if (dato.style.display === "block") {
+                dato.style.display = "none";
+                button.textContent = "Ver Dato Curioso";
+            } else {
+                dato.style.display = "block";
+                button.textContent = "Ocultar Dato Curioso";
+            }
+        }
+    </script>
+</body>
+</html>
